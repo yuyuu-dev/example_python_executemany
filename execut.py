@@ -38,9 +38,6 @@ with cx_Oracle.connect(USERNAME, PASSWORD, tns) as connect:
         cursor.close() #コミット確定
         cursor = connect.cursor() #カーソルの再オープン
 
-    if data: #dataリストが残っている場合（1000で割り切れなかった分）
-      cursor.executemany(sql, data) #updateの実行
-
   connect.commit() #最後にコミット
   cursor.close()
 
